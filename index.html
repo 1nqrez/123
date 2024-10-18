@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мотивация для Учёбы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Мотивация для Учёбы</h1>
+
+        <!-- Помодоро Таймер -->
+<div id="timer-message">Please select a timer before starting.</div>
+
+<div class="container">
+      <div class="timer">
+        <h1>🍅 Pomodoro Timer</h1>
+
+        <div class="button-container">
+          <button class="button" id="pomodoro-session">Pomodoro</button>
+          <button class="button" id="short-break">Short Break</button>
+          <button class="button" id="long-break">Long break</button>
+        </div>
+
+        <div id="pomodoro-timer" class="timer-display" data-duration="25.00">
+          25:00
+        </div>
+
+        <div id="short-timer" class="timer-display" data-duration="5.00">
+          5:00
+        </div>
+
+        <div id="long-timer" class="timer-display" data-duration="10.00">
+          10:00
+        </div>
+
+        <div id="buttons">
+          <button id="start">START</button>
+          <button id="stop">STOP</button>
+        </div>
+      </div>
+    </div>
+        
+        <!-- Ежедневные Задачи -->
+        <div class="challenge">
+            <h2>Ежедневные Задачи</h2>
+            <div id="daily-challenge"></div>
+            <button class="btn task-done" onclick="markTaskDone()">Задание выполнено</button>
+            <p>Выполнено задач сегодня: <span id="tasks-completed">0</span></p>
+            <button class="btn new-task" onclick="generateChallenge()">Новое задание</button>
+        </div>
+
+        <!-- Собственные Задачи -->
+        <div class="custom-tasks">
+            <h2>Мои Задачи</h2>
+            <form onsubmit="addCustomTask(); return false;">
+                <input type="text" id="custom-task-input" placeholder="Введите свою задачу">
+                <button class="btn add" type="submit">Добавить задачу</button>
+            </form>
+            <ul id="custom-task-list"></ul>
+        </div>
+    <div class="container">
+
+
+        
+<div class="container">
+
+        <button id="open-modal" style="right:20px; top:20px; position:fixed; z-index: 2;" class="btn">Вход / Регистрация</button> <!-- Кнопка для открытия модального окна -->
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                
+                <!-- Форма регистрации ученика -->
+                <h2>Регистрация ученика</h2>
+                <form id="register-student-form">
+                    <input type="text" id="student-username" placeholder="Имя пользователя" required>
+                    <input type="password" id="student-password" placeholder="Пароль" required>
+                    <input type="text" id="parent-username" placeholder="Имя пользователя родителя (необязательно)">
+                    <button type="submit" class="btn">Зарегистрироваться</button>
+                </form>
+
+                <!-- Форма входа -->
+                <h2>Вход</h2>
+                <form id="login-form">
+                    <input type="text" id="login-username" placeholder="Имя пользователя" required>
+                    <input type="password" id="login-password" placeholder="Пароль" required>
+                    <button type="submit" class="btn">Войти</button>
+                </form>
+
+                <div id="message"></div>
+            </div>
+        </div>
+
+        <div id="dashboard" style="display:none;">
+            <h2>Панель управления</h2>
+            <div id="user-view">
+                <p id="user-role"></p>
+                <p>Выполнено задач: <span id="tasks-completed">0</span></p>
+                <button class="btn task-done" onclick="completeTask()">Выполнить задачу</button>
+            </div>
+        </div>
+
+        <div id="quote"></div>
+    </div>
+
+    <script src="auth.js"></script>
+<script>
+    // Открытие и закрытие модального окна
+        const modal = document.getElementById("modal");
+        const openModalButton = document.getElementById("open-modal");
+        const closeModalButton = document.getElementById("close-modal");
+
+        openModalButton.onclick = function() {
+            modal.style.display = "block"; // Открываем модальное окно
+        }
+
+        closeModalButton.onclick = function() {
+            modal.style.display = "none"; // Закрываем модальное окно
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Закрываем модальное окно при клике вне его
+            }
+        }
+            </script>
+        
+        
+        <!-- Мотивация -->
+        <div class="motivation">
+            <h2>Мотивационные Цитаты</h2>
+            <button class="btn quote" onclick="generateMotivation()">Получить мотивацию</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
