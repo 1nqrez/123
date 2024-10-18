@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мотивация для Учёбы</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!-- <img id="cat-image" src="https://avatars.mds.yandex.net/i?id=10e8c68ef850feab41834dd4acaaabae_l-4349461-images-thumbs&n=13" alt="Котик"> -->
+
+    <div class="container">
+        <h1 class="heading">Мотивация для Учёбы</h1>
+
+        <!-- Помодоро Таймер -->
+<div id="timer-message">Выберите таймер перед началом</div>
+<div class="container">
+      <div class="timer">
+        <div class="button-container">
+          <button class="button" id="pomodoro-session">Таймер</button>
+          <button class="button" id="short-break">Короткий перерыв</button>
+          <button class="button" id="long-break">Длинный перерыв</button>
+        </div>
+
+        <div id="pomodoro-timer" class="timer-display" data-duration="25.00">
+          25:00
+        </div>
+
+        <div id="short-timer" class="timer-display" data-duration="5.00">
+          5:00
+        </div>
+
+        <div id="long-timer" class="timer-display" data-duration="10.00">
+          10:00
+        </div>
+
+        <div id="buttons">
+          <button id="start">СТАРТ</button>
+          <button id="stop">СТОП</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- Ежедневные Задачи -->
+        <div class="challenge">
+            <h2>Ежедневные Задачи</h2>
+            <div id="daily-challenge"></div>
+            <button class="btn task-done" onclick="markTaskDone()">Задание выполнено</button>
+            <p>Выполнено задач сегодня: <span id="tasks-completed">0</span></p>
+            <button class="btn new-task" onclick="generateChallenge()">Новое задание</button>
+        </div>
+
+        <!-- Собственные Задачи -->
+        <div class="custom-tasks">
+            <h2>Мои Задачи</h2>
+            <form onsubmit="addCustomTask(); return false;">
+                <input type="text" id="custom-task-input" placeholder="Введите свою задачу">
+                <button class="btn add" type="submit">Добавить задачу</button>
+            </form>
+            <ul id="custom-task-list"></ul>
+        </div>
+    <div class="container">
+
+
+
+<div class="container">
+
+       <button id="open-modal" class="btn">Вход / Регистрация</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+
+             <h2>Регистрация ученика</h2>
+            <form id="register-form">
+                <input type="text" id="register-username" placeholder="Имя пользователя" required>
+                <input type="email" id="register-email" placeholder="Почта" required>
+                <input type="password" id="register-password" placeholder="Пароль" required>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+            </form>
+            <p id="register-message" class="message"></p> <!-- Добавили элемент для сообщения после регистрации -->
+
+            <!-- Форма входа -->
+            <h2>Вход</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Имя пользователя" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+                <button type="submit" class="btn">Войти</button>
+            </form>
+            <p id="login-message" class="message"></p> <!-- Добавили элемент для сообщения после авторизации -->
+
+            <div id="message"></div>
+        </div>
+    </div>
+
+
+        <div id="dashboard" style="display:none;">
+            <h2>Панель управления</h2>
+            <div id="user-view">
+                <p id="user-role"></p>
+                <p>Выполнено задач: <span id="tasks-completed">0</span></p>
+                <button class="btn task-done" onclick="completeTask()">Выполнить задачу</button>
+            </div>
+        </div>
+
+        <div id="quote"></div>
+    </div>
+
+    <script src="auth.js"></script>
+<script>
+    // Открытие и закрытие модального окна
+        const modal = document.getElementById("modal");
+        const openModalButton = document.getElementById("open-modal");
+        const closeModalButton = document.getElementById("close-modal");
+
+        openModalButton.onclick = function() {
+            modal.style.display = "block"; // Открываем модальное окно
+        }
+
+        closeModalButton.onclick = function() {
+            modal.style.display = "none"; // Закрываем модальное окно
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Закрываем модальное окно при клике вне его
+            }
+        }
+            </script>
+
+
+        <!-- Мотивация -->
+        <div class="motivation">
+            <h2>Мотивационные Цитаты</h2>
+            <button class="btn quote" onclick="generateMotivation()">Получить мотивацию</button>
+            <div class="slider-container">
+                <div class="slider">
+                    <!-- Первый слайд -->
+                    <div class="slide">
+                        <h2>Ларри Пейдж и Сергей Брин</h2>
+                        <p>Ларри Пейдж и Сергей Брин, создатели Google, познакомились во время учебы в Стэнфорде, где оба изучали
+                            компьютерные науки. Их исследовательский проект превратился в Google. Состояние Пейджа – около **$110
+                            миллиардов**, Брина – около **$100 миллиардов**.</p>
+                    </div>
+
+                    <!-- Второй слайд -->
+                    <div class="slide">
+                        <h2>Марк Цукерберг</h2>
+                        <p>Марк Цукерберг, создатель Facebook, разработал платформу в Гарварде, где изучал компьютерные науки. Его
+                            состояние оценивается в **около $110 миллиардов**.</p>
+                    </div>
+
+                    <!-- Третий слайд -->
+                    <div class="slide">
+                        <h2>Джефф Безос</h2>
+                        <p>Джефф Безос, создатель Amazon, получил образование в Принстоне по электротехнике и компьютерным наукам.
+                            Его состояние составляет **около $150 миллиардов**.</p>
+                    </div>
+
+                    <!-- Четвертый слайд -->
+                    <div class="slide">
+                        <h2>Рид Хастингс</h2>
+                        <p>Рид Хастингс, создатель Netflix, получил степень магистра компьютерных наук в Стэнфорде. Его состояние
+                            оценивается в **около $3.5 миллиардов**.</p>
+                    </div>
+
+                    <!-- Пятый слайд -->
+                    <div class="slide">
+                        <h2>Майкл Блумберг</h2>
+                        <p>Майкл Блумберг, создатель Bloomberg L.P., получил MBA в Гарварде. Его состояние составляет **около $96
+                            миллиардов**.</p>
+                    </div>
+
+                    <!-- Шестой слайд -->
+                    <div class="slide">
+                        <h2>Сатья Наделла</h2>
+                        <p>Сатья Наделла, генеральный директор Microsoft, получил образование по электротехнике, компьютерным наукам
+                            и MBA. Его состояние оценивается в **около $1 миллиард**.</p>
+                    </div>
+
+                    <!-- Седьмой слайд -->
+                    <div class="slide">
+                        <h2>Тим Кук</h2>
+                        <p>Тим Кук, генеральный директор Apple, получил степень по промышленной инженерии и MBA. Его состояние
+                            оценивается в **около $1 миллиард**.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="uspeh">
+        <h2>Личности, которые добились успеха благодаря учебе:</h2>
+        <div class="slider">
+        <!-- Четырнадцатый слайд -->
+        <div class="slide">
+            <h3>Ларри Пейдж и Сергей Брин</h3>
+            <p>Ларри Пейдж и Сергей Брин, создатели Google, познакомились во время учебы в Стэнфорде, где оба изучали компьютерные науки. Их исследовательский проект превратился в Google. Состояние Пейджа – около **$110 миллиардов**, Брина – около **$100 миллиардов**.</p>
+        </div>
+
+        <!-- Пятнадцатый слайд -->
+        <div class="slide">
+            <h3>Марк Цукерберг</h3>
+            <p>Марк Цукерберг, создатель Facebook, разработал платформу в Гарварде, где изучал компьютерные науки. Его состояние оценивается в **около $110 миллиардов**.</p>
+        </div>
+
+        <!-- Шестнадцатый слайд -->
+        <div class="slide">
+            <h3>Джефф Безос</h3>
+            <p>Джефф Безос, создатель Amazon, получил образование в Принстоне по электротехнике и компьютерным наукам. Его состояние составляет **около $150 миллиардов**.</p>
+        </div>
+
+        <!-- Семнадцатый слайд -->
+        <div class="slide">
+            <h3>Рид Хастингс</h3>
+            <p>Рид Хастингс, создатель Netflix, получил степень магистра компьютерных наук в Стэнфорде. Его состояние оценивается в **около $3.5 миллиардов**.</p>
+        </div>
+
+        <!-- Восемнадцатый слайд -->
+        <div class="slide">
+            <h3>Майкл Блумберг</h3>
+            <p>Майкл Блумберг, создатель Bloomberg L.P., получил MBA в Гарварде. Его состояние составляет **около $96 миллиардов**.</p>
+        </div>
+
+        <!-- Девятнадцатый слайд -->
+        <div class="slide">
+            <h3>Сатья Наделла</h3>
+            <p>Сатья Наделла, генеральный директор Microsoft, получил образование по электротехнике, компьютерным наукам и MBA. Его состояние оценивается в **около $1 миллиард**.</p>
+        </div>
+
+        <!-- Двадцатый слайд -->
+        <div class="slide">
+            <h3>Тим Кук</h3>
+            <p>Тим Кук, генеральный директор Apple, получил степень по промышленной инженерии и MBA. Его состояние оценивается в **около $1 миллиард**.</p>
+        </div>
+    </div>
+    </div>
+
+    <script src="static/script.js"></script>
+        <script src="/static/auth.js"></script>
+    <script src="/static/modal.js"></script>
+</body>
+</html>

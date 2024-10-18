@@ -1,0 +1,399 @@
+.timer {
+  display: inline-block;
+  padding: 10px;
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.heading{
+    color:bisque;
+}
+.container {
+    text-align: center;
+    color:bisque;
+}
+.custom-tasks h2{
+    color:bisque;
+}
+.challenge h2{
+    color:bisque;
+}
+.button {
+  background-color: #2e325a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #f87070;
+}
+.hidden {
+  display: block;
+}
+.timer-display {
+  font-size: 5em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+#buttons {
+  margin-top: 20px;
+}
+#start,
+#stop {
+  background-color: #2e325a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#stop:hover {
+  background-color: tomato;
+}
+#start:hover {
+  background-color: #219a52;
+}
+ #timer-message {
+   color: white;
+   background-color: tomato;
+   display: none;
+   padding: .5em;
+   font-size: 1em;
+   text-align: center;
+   border-radius: 1em;
+      }
+body {
+    font-family: 'Arial', sans-serif;
+    color: #d7e0ff;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom right, #111122, #222233, #333344);
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+
+    .modal {
+        display: none; 
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #333344;
+        padding: 20px;
+        border-radius: 10px; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 100; 
+        width: 400px;
+        max-width: 90%; 
+      }
+    
+      .modal.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .modal-content {
+        width: 100%;
+        text-align: center;
+      }
+    
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+      }
+    
+      .modal-header h2 {
+        margin: 0;
+        flex-grow: 1;
+      }
+    
+      .close {
+        cursor: pointer;
+        font-size: 20px;
+        padding: 5px;
+        background-color: #eee;
+        border: none;
+        border-radius: 50%; 
+        color: #333;
+      }
+      .close h2{
+        color:bisque;
+      }
+    
+      .modal-body {
+        padding: 20px;
+        width: 100%;
+      }
+    
+      .modal-body h2 {
+        margin-bottom: 15px;
+      }
+    
+      .modal-body form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .modal-body input {
+        width: calc(100% - 20px); 
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box; 
+      }
+    
+      .modal-footer {
+        padding: 15px 20px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    
+      .btn {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px; 
+      }
+    
+      .btn:hover {
+        background-color: #3e8e41;
+      }
+    
+      #open-modal {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 2;
+        border-radius: 5px; 
+      }
+    
+      #dashboard {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+      }
+    
+      #user-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      #user-view button {
+        margin-top: 10px;
+      }
+    </style>
+h1 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    margin: 20px auto;
+
+}
+
+h2 {
+    font-size: 1.6em;
+    color: #34495e;
+    margin-top: 20px;
+}
+
+#timer {
+    font-size: 3em;
+    color: #e74c3c;
+    margin-top: 15px;
+}
+.custom-tasks{
+    color: #000000;
+    margin-top: 25px;
+
+}
+
+.button-group, .challenge, .motivation{
+    margin-top: 25px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.start {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.start:hover {
+    background-color: #2980b9;
+}
+
+.reset {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.reset:hover {
+    background-color: #c0392b;
+}
+
+.task-done {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.task-done:hover {
+    background-color: #27ae60;
+}
+
+.new-task {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+.new-task:hover {
+    background-color: #8e44ad;
+}
+
+.add {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.add:hover {
+    background-color: #e67e22;
+}
+
+.quote {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.quote:hover {
+    background-color: #e67e22;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%;
+    margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+/* Основной контейнер для слайдера */
+.slider-container {
+    width: 100%;
+    overflow-x: auto;  /* Включаем горизонтальную прокрутку */
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    white-space: nowrap;  /* Запрещаем перенос строк, чтобы слайды шли в ряд */
+    margin: 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Слайдер, в котором содержатся слайды */
+.slider {
+    display: inline-block;
+    width: 100%; /* Или другую ширину */
+  
+}
+
+/* Каждый отдельный слайд */
+.slide {
+    display: inline-block;
+    width: 400px;  /* Увеличена ширина слайда */
+    height: auto; /* Высота теперь автоматически подстраивается под контент */
+    margin-right: 10px;  /* Отступ между слайдами */
+    background-color: #333344;
+    border-radius: 10px;
+    padding: 30px; /* Увеличен отступ внутри слайда */
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: top; /* Слайды будут выровнены по верхнему краю */
+    white-space: normal;  /* Включаем перенос текста внутри слайда */
+    border: 2px solid #ddd;
+
+}
+
+/* Стили для заголовков и текста */
+.slide h2 {
+    font-size: 24px; /* Увеличен размер заголовка */
+    color:bisque;
+    margin-bottom: 15px; /* Увеличен отступ снизу для заголовка */
+}
+
+.slide p {
+    font-size: 16px; /* Увеличен размер текста */
+    color: bisque;
+    line-height: 1.6;  /* Увеличиваем межстрочный интервал для удобства чтения */
+    text-align: left;  /* Выровняем текст по левому краю для лучшей читабельности */
+}
+
